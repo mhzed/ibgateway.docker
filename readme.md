@@ -46,6 +46,6 @@ To connect to api server, tcp connect to localhost:14004.
 
 ## More details
 
-Details are in entry.sh.  The gateway accepts connection from localhost only for security reason.  The option could be overridden in the gateway configuration GUI, but doesn't work due to bug in version 974.4.  So we simply use socat to create a port forward to trick the gateway IP checks, and this also pins down the gateway api port to 4004.
+Details are in entry.sh.  The gateway accepts connection from localhost only for security reason, this option could be overridden in the gateway configuration GUI, but doesn't work due to bug in version 974.4.  Instead we simply use socat to create a port forward to trick the gateway IP checks, which also pins down the gateway api port to 4004.
 
-Application level securities are stripped out intentionally, i.e. both vnc and api servers can be accessed directly.  Instead use SSH tunnel to the docker host to access these ports, this is much more secure and convenient.
+Application level securities are stripped out intentionally, i.e. both vnc and api servers can be accessed directly.  Using SSH tunnel to the docker host to access these ports, this is much more secure and convenient.
