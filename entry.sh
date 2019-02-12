@@ -1,5 +1,6 @@
 #!/bin/sh
-Xvfb :1 -ac -screen 0 1024x768x16 &
+rm /tmp/.X1-lock
+Xvfb :1 -ac -screen 0 1024x768x16 >> /var/log/xvfb.log &
 export DISPLAY=:1
 x11vnc -ncache_cr -display :1 -forever -shared -logappend /var/log/x11vnc.log -bg -noipv6
 
