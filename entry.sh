@@ -1,5 +1,7 @@
-#!/bin/sh
-rm /tmp/.X1-lock
+#!/bin/bash
+if [[ -f /tmp/.X1-lock ]]; then
+  rm /tmp/.X1-lock
+fi
 Xvfb :1 -ac -screen 0 1024x768x16 >> /var/log/xvfb.log &
 export DISPLAY=:1
 x11vnc -ncache_cr -display :1 -forever -shared -logappend /var/log/x11vnc.log -bg -noipv6
